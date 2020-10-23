@@ -21,10 +21,7 @@ One, two, three
 4 строки
 '''
 
-
-
-
-
-
-
-
+with open("dz6.1.txt", 'r') as dz61:
+    for line in dz61:
+        print(line.replace("\n", ''))
+        print(len(line), "символов и", len(line.split(" ")), "слова\n")

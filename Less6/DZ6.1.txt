@@ -1,0 +1,4 @@
+Hello world!
+Привет мир!
+One, two, three
+Один, два, три

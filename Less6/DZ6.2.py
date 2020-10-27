@@ -18,3 +18,22 @@
 
 7
 '''
+import re
+
+with open("dz6.2.txt") as dz62:
+    lines = 0
+    for line in dz62:
+        lines += 1
+    print(lines)
+    for row in dz62:
+        rowStr = row.strip(' ')
+        rowStr = re.split(' +', rowStr)
+
+    for i in range(len(rowStr)):
+            print()
+        # for i in rowStr:
+        #     print(i)
+            #z += int(i)
+        #print(z)
+
+

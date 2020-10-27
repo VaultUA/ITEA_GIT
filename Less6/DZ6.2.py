@@ -20,17 +20,25 @@
 '''
 import re
 
-with open("dz6.2.txt") as dz62:
-    lines = 0
-    for line in dz62:
-        lines += 1
-    print(lines)
-    for row in dz62:
-        rowStr = row.strip(' ')
-        rowStr = re.split(' +', rowStr)
-
+dz62 = open("dz6.2.txt")
+for row in dz62:
+    rowStr = row.strip(' ')
+    rowStr = re.split(' +', rowStr)
     for i in range(len(rowStr)):
-            print()
+        print(rowStr[i][0])
+
+
+# lines = 0
+# for line in rowStr:
+#     lines += 1
+# print(lines)
+# lin = dz62.readline()
+# print(lin)
+
+
+    #
+    # for i in range(len(rowStr)):
+    #     print()
         # for i in rowStr:
         #     print(i)
             #z += int(i)

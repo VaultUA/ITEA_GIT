@@ -19,29 +19,38 @@
 7
 '''
 import re
-
-dz62 = open("dz6.2.txt")
-for row in dz62:
-    rowStr = row.strip(' ')
-    rowStr = re.split(' +', rowStr)
-    for i in range(len(rowStr)):
-        print(rowStr[i][0])
-
-
-# lines = 0
-# for line in rowStr:
-#     lines += 1
-# print(lines)
-# lin = dz62.readline()
-# print(lin)
-
-
-    #
-    # for i in range(len(rowStr)):
-    #     print()
-        # for i in rowStr:
-        #     print(i)
-            #z += int(i)
-        #print(z)
-
-
+# Открываем файл с матрицей
+with open("dz6.2.txt") as dz62:
+    matrix = []
+    a = 0
+    c = []
+    # очищаем от лишнего и загоняем в лист matrix
+    for row in dz62:
+        b = []
+        rowStr = row.strip('\n')
+        rowStr = re.split(' +', rowStr)
+        for i in rowStr:
+            b.append(i)
+        matrix.append(b)
+        a += 1
+    # суммируем значения в столбике и выводим на экран матрицу с суммами
+    dz62.seek(0)
+    print(dz62.read())
+    print("%-4s" % ('--') * 10)
+    for i in range(a):
+        z = 0
+        for j in range(a):
+            z += int(matrix[j][i])
+        print(z, end=" ")
+        c += [z]
+    # Поиск максимального значения
+    maxN = 0
+    for i in range(len(c)):
+        if c[i] > c[maxN]:
+            maxN = i
+            maxNi = i
+    maxN = c[maxN]
+    # Выводим сумму и номер колонки
+    print()
+    print()
+    print("Максимальная сумма", maxN, "в колонке", maxNi + 1)

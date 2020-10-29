@@ -73,10 +73,32 @@
 """
 функциональное программирование
 """
+# def test():
+#     a = '5'
+#     return int(a)
+#
+# print(test())
 
+####
 
+# def square(x):
+#     return x * x
+#
+# def cube(x):
+#     return x * x * x
+#
+# def print_res(x, func):
+#     return func(x)
+#
+# do_square = square
+# do_cube = cube
+#
+# res = print_res(5,do_cube)
+# print(res)
+# res = print_res(5,do_square)
+# print(res)
 
-
+########
 
 
 

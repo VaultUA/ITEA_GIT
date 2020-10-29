@@ -52,20 +52,52 @@
 
 ####### CLASS
 
+# a = 5
+# b = "Hello"
+# c = [1, 2, 3]
+#
+# print(type(a))
+# print(type(b))
+# print(type(c))
+#
 
 
+# student1 = Student('Volodymyr', 'Chyrkovskyi', '3-b', '08.0.7.1987' )
+# student2 = Student('Ivan', 'Programmer', '10-a', '08.0.7.1987')
+#
+# print(student1.name, '-', student1.clas)
+# print(student2.name, '-', student1.clas)
+#
+# student1.setClass("4-b")
+#
+# print(student1.name, '-', student1.clas)
+# print(student2.name, '-', student1.clas)
+
+from Student import Student
 
 
+def readBD(filename: str, bd: list):
+    with open(filename) as file:
+        for line in file:
+            linelist = line.strip().split(' ')
+
+            bd.append(Student(linelist[0].split('=')[1],
+                              linelist[1].split('=')[1],
+                              linelist[2].split('=')[1],
+                              linelist[3].split('=')[1]))
 
 
+def printBD(bd: list):
+    print('%-12s%-12s%-8s%-12s' % ('Name', 'Surname', 'Class', 'Birthday'))
+
+    for student in bd:
+        print('%-12s%-12s%-8s%-12s' % (student.name, student.surname, student.clas, student.dob))
 
 
+if __name__ == "__main__":
+    bdStudents = []
+    readBD("input.txt", bdStudents)
+    printBD(bdStudents)
 
-
-
-
-
-
-
-
-
+    ####print(bdStudents[0].getAgeinDay)
+    print(sorted(bdStudents, key=lambda stud: getageinday()))

@@ -99,5 +99,4 @@ if __name__ == "__main__":
     readBD("input.txt", bdStudents)
     printBD(bdStudents)
 
-    ####print(bdStudents[0].getAgeinDay)
-    print(sorted(bdStudents, key=lambda stud: getageinday()))
+    print(sorted(bdStudents, key=lambda stud: Student.dgetageinday()))

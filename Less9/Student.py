@@ -1,31 +1,37 @@
 '''
-Объект - студент
+Объект - Студент
 Свойства объекта:
-    - имя
-    - фамилия
-    - класс
-    - др
+    - Имя
+    - Фамилия
+    - Класс
+    - День рождения
 '''
-import datetime
 
+import datetime
 
 class Student:
 
     def __init__(self, name, surname, clas, dob):
-        # Создаем свойства объекта
-        self.name = name
-        self.surname = surname
-        self.clas = clas
-        self.dob = dob
 
-    # def setClass(self,newClass):
-    #     self.clas = newClass
+        # Так мы создаем свойства объекта
+        self.name_ = name
+        self.surname_ = surname
+        self.clas_ = clas
+        self.dob_ = datetime.date(int(dob.split('.')[2]),
+                                  int(dob.split('.')[1]),
+                                  int(dob.split('.')[0]))
 
-    def getageinday(self):
-        tDOB = datetime.date(int(self.dob.split('.')[2]),
-                             int(self.dob.split('.')[1]),
-                             int(self.dob.split('.')[0]))
 
-        taday = datetime.datetime.today().date()
+    def __lt__(self, other):
+        return self.dob_ > other.dob_
 
-        return (today - tDOB).days
+
+    def __str__(self):
+        return ('name=%s surname=%s class=%s birthday=%s' % (self.name_,
+                                                             self.surname_,
+                                                             self.clas_,
+                                                             self.dob_.strftime('%d.%m.%Y')))
+
+
+    def getAgeinDay(self):
+        return (datetime.datetime.today().date() - self.dob_).days

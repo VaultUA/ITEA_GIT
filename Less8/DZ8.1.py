@@ -22,34 +22,15 @@
 '''
 
 import math
-def radius_square(a):
-    return a * a
-
-def print_res(func, a):
-    return func(a)
 
 
-def triangle(a, b, c):
-    p = (a + b + c) / 2
-    s = math.sqrt(p * (p - a) * (p - b) * (p - c))
-    return s
+def decor(func):
+    def wrapper():
+        func()
+    return wrapper()
 
+@decor
+def hello():
+    return int(input("Выберите фигуру: Круг: 1 , Прямоугольник: 2, треугольник: 3\n"))
 
-if __name__ == "__main__":
-    choice = int(input("Выберите фигуру: Круг: 1 , Прямоугольник: 2, треугольник: 3\n"))
-    if choice == 1:
-        r = int(input("введите радиус\n"))
-        circle = lambda r: math.pi * (r ** 2)
-        print(circle(r))
-    elif choice == 2:
-        a = int(input("введите длину стороны А\n"))
-        b = int(input("введите длину стороны В\n"))
-        square = lambda a, b: a * b
-        print(square(a, b))
-    elif choice == 3:
-        a = int(input("введите длину стороны А\n"))
-        b = int(input("введите длину стороны В\n"))
-        c = int(input("введите длину стороны C\n"))
-        print(triangle(a, b, c))
-    else:
-        print("ошибка ввода")
+print(hello())

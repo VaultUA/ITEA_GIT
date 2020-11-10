@@ -24,13 +24,45 @@
 import math
 
 
+def choice(a):
+    if a == 1:
+        r = int(input("введите радиус\n"))
+        print('Площать Михаила Круга: ')
+        print(circle(r))
+    elif a == 3:
+        a = int(input("введите длину стороны А\n"))
+        b = int(input("введите длину стороны В\n"))
+        c = int(input("введите длину стороны C\n"))
+        print(triangle(a, b, c))
+    else:
+        print("ошибка ввода")
+
+
+def circle(a):
+    return math.pi * (a ** 2)
+
+
 def decor(func):
-    def wrapper():
-        func()
-    return wrapper()
+
+    def wrapper(*args, **kwargs):
+        print('Площать треугольника: ')
+        res = func(*args, **kwargs)
+        return res
+
+    return wrapper
 
 @decor
-def hello():
-    return int(input("Выберите фигуру: Круг: 1 , Прямоугольник: 2, треугольник: 3\n"))
+def triangle(a, b, c):
+    p = (a + b + c) / 2
+    s = math.sqrt(p * (p - a) * (p - b) * (p - c))
+    return s
 
-print(hello())
+inpt = int(input("Выберите фигуру: Круг: 1 , Прямоугольник: 2, треугольник: 3\n"))
+if inpt == 2:
+    a = int(input("введите длину стороны А\n"))
+    b = int(input("введите длину стороны В\n"))
+    square = lambda a, b: a * b
+    print('Площать прямоугольника: ')
+    print(square(a, b))
+else:
+    choice(inpt)
